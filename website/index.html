@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Calculatrice</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="style.css" />
+        <script>
+            $(function(){
+                var socket;
+
+                if(window.WebSocket){
+                    var socket = new WebSocket("ws://localhost:12369");
+
+                    socket.onmessage = function(msg){
+                        alert(msg.data);
+                        console.log(msg);
+                    }
+                }
+
+                function sendMessage(msg){
+                    socket.send(msg);
+                }
+
+                $('#boutonEnvois').click(function(){
+                    sendMessage($('#entreeCalcul').val());
+                });
+            });
+        </script>
+    </head>
+    <body align="center">
+        <h1>Calcul</h1>
+        <div class="row-fluid">
+            <div class="calculette span6">
+                <input type="text" id="entreeCalcul">
+                <button id="boutonEnvois">Calculer</button>
+            </div>
+        </div>
+    </body>
+</html>

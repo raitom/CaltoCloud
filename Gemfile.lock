@@ -1,26 +1,23 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    addressable (2.3.5)
     colored (1.2)
-    cookiejar (0.3.0)
-    em-http-request (1.1.2)
-      addressable (>= 2.3.4)
-      cookiejar
-      em-socksify (>= 0.3)
-      eventmachine (>= 1.0.3)
-      http_parser.rb (>= 0.6.0)
-    em-socksify (0.3.0)
-      eventmachine (>= 1.0.0.beta.4)
     eventmachine (1.0.3)
-    http_parser.rb (0.6.0)
     logger (1.2.8)
+    websocket (1.1.2)
+    websocket-eventmachine-base (1.0.2)
+      eventmachine (~> 1.0)
+      websocket (~> 1.0)
+      websocket-native (~> 1.0)
+    websocket-eventmachine-server (1.0.1)
+      websocket-eventmachine-base (~> 1.0)
+    websocket-native (1.0.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   colored
-  em-http-request
   eventmachine
   logger
+  websocket-eventmachine-server
