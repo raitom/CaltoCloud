@@ -23,7 +23,7 @@ EM.run do
 
       begin
         result = eval msg.chomp
-      rescue NameError, SyntaxError, ZeroDivisionError
+      rescue NameError, SyntaxError, ZeroDivisionError, ArgumentError
         result = nil
       end
 
